@@ -59,3 +59,20 @@ Siga os passos abaixo para configurar e testar o projeto localmente:
 ```bash
 git clone https://github.com/matheusesilva/crowdfunding-dnft.git
 cd crowdfunding-dnft
+```
+
+### 2. Instale o Foundry
+
+Se você ainda não tem o Foundry instalado, siga as instruções no [Foundry Book](https://getfoundry.sh/).
+
+### 3. Compile os Contratos
+   
+```bash
+forge build
+```
+
+### 4. Execute os Testes
+   
+```bash
+forge test
+```
