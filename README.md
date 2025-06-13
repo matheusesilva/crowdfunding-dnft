@@ -57,5 +57,5 @@ Siga os passos abaixo para configurar e testar o projeto localmente:
 ### 1. Clone o Repositório
 
 ```bash
-git clone <URL_DO_SEU_REPOSITORIO>
-cd <NOME_DO_SEU_REPOSITORIO>
+git clone https://github.com/matheusesilva/crowdfunding-dnft.git
+cd crowdfunding-dnft
