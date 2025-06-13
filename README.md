@@ -1,66 +1,85 @@
-## Foundry
+# 🚀 Plataforma de Crowdfunding Descentralizada com NFTs e Votação
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+Uma plataforma de crowdfunding descentralizada onde doadores recebem NFTs intransferíveis baseados em raridade e votam na alocação de fundos em rodadas, promovendo transparência e engajamento.
 
-Foundry consists of:
+Este projeto apresenta um contrato inteligente robusto para uma plataforma de crowdfunding totalmente descentralizada, combinando doações com a emissão de NFTs intransferíveis e um sistema de governança por votação para a alocação de fundos.
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+---
 
-## Documentation
+## ✨ Recursos Principais
 
-https://book.getfoundry.sh/
+### 🏅 NFTs Intransferíveis como Comprovante de Doação
 
-## Usage
+- Doadores recebem um NFT exclusivo ao fazer uma doação mínima, servindo como um distintivo de participação e engajamento.
+- Estes NFTs são desenhados para serem intransferíveis, garantindo que o comprovante de doação permaneça ligado ao endereço original.
 
-### Build
+### 🧱 Sistema de Níveis para Doadores
 
-```shell
-$ forge build
+- Os doadores são categorizados em níveis (Bronze, Prata, Ouro) com base no valor total doado e na frequência de suas contribuições, incentivando o engajamento contínuo.
+
+### 📊 Mecanismo de Rodadas de Financiamento e Votação
+
+- A plataforma opera em rodadas de financiamento, onde os fundos são arrecadados e as propostas de utilização são criadas.
+- Os detentores de NFTs podem votar nas propostas para decidir como os fundos arrecadados serão distribuídos.
+- A distribuição de fundos é proporcional ao número de votos que cada proposta recebe.
+
+### 👕 Gerenciamento de Camisas (NFTs)
+
+- Capacidade de cadastrar diferentes "camisas" (representações visuais ou temáticas para os NFTs) com raridades variadas: Comum, Média e Rara.
+- A raridade da camisa doada é sorteada aleatoriamente no momento da cunhagem do NFT.
+
+### 🔍 Transparência e Imutabilidade
+
+- Construído sobre a blockchain, todas as doações, votos e distribuições de fundos são registrados de forma transparente e imutável.
+
+### 💰 Uso de Token ERC-20 (BRZ)
+
+- As doações e a alocação de fundos são realizadas utilizando um token ERC-20 específico (simulado como `MockBRZ` para testes).
+
+### 🔐 Funções Controladas pelo Proprietário
+
+- O proprietário do contrato possui controle sobre funções administrativas, como o cadastro de novas camisas, a criação de propostas e o encerramento das rodadas.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Solidity**: Linguagem de programação para contratos inteligentes na Ethereum Virtual Machine (EVM).
+- **OpenZeppelin Contracts**: Bibliotecas seguras e testadas para padrões de token (ERC-721) e controle de acesso (`Ownable2Step`).
+- **Foundry (Forge & Cast)**: Conjunto de ferramentas de desenvolvimento para contratos Solidity, utilizado para compilação, teste e interação com o contrato.
+
+---
+
+## 🚀 Como Executar o Projeto (Desenvolvimento)
+
+Siga os passos abaixo para configurar e testar o projeto localmente:
+
+### 1. Clone o Repositório
+
+```bash
+git clone https://github.com/matheusesilva/crowdfunding-dnft.git
+cd crowdfunding-dnft
 ```
 
-### Test
+### 2. Instale o Foundry
 
-```shell
-$ forge test
+Se você ainda não tem o Foundry instalado, siga as instruções no [Foundry Book](https://getfoundry.sh/).
+
+### 3. Compile os Contratos
+
+```bash
+forge build
 ```
 
-### Format
+### 4. Execute os Testes
 
-```shell
-$ forge fmt
+```bash
+forge test
 ```
+---
 
-### Gas Snapshots
+## 🛣️ Próximos Passos e Melhorias Potenciais
 
-```shell
-$ forge snapshot
-```
+- Interface de Usuário (Frontend): Desenvolver uma aplicação web (usando frameworks como React, Vue ou Next.js) para permitir que os usuários interajam com o contrato de forma intuitiva.
 
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+- Oráculo de Aleatoriedade Verificável: Para ambientes de produção, integrar um serviço como Chainlink VRF para a geração de NFTs, garantindo uma aleatoriedade segura e auditável.
