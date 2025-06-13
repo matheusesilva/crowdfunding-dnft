@@ -101,9 +101,9 @@ contract ContratoPrincipal is ERC721, Ownable2Step {
         uint256 tempoDesdeUltimaDoacao = block.timestamp - dados.ultimaDoacao;
 
         // Define o nível do doador (Ouro, Prata, Bronze) com base em doações e tempo.
-        if (media >= 100 ether && tempoSinceLastDonation <= 30 days) {
+        if (media >= 100 ether && tempoDesdeUltimaDoacao <= 30 days) {
             return "Ouro";
-        } else if (media >= 50 ether && tempoSinceLastDonation <= 60 days) {
+        } else if (media >= 50 ether && tempoDesdeUltimaDoacao <= 60 days) {
             return "Prata";
         } else {
             return "Bronze";
@@ -343,4 +343,5 @@ contract ContratoPrincipal is ERC721, Ownable2Step {
         return rodadas[rodadaAtual].totalArrecadado; // Retorna o total arrecadado na rodada atual.
     }
 }
+
 
